@@ -36,29 +36,83 @@
         }
     </style>
     <style>
-        .typing-text {
-          white-space: nowrap; /* Prevent text from wrapping */
-          overflow: hidden;   /* Hide text that overflows */
-          border-right: 2px solid; /* Optional: Add a blinking cursor */
-          width: 0;         /* Start with zero width */
-          animation: typing 3.5s steps(40, end) infinite, /* Adjust duration and steps */
-                     blinking-cursor .75s step-end infinite; /* Blinking cursor */
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        @keyframes typing {
-          from { width: 0 }
-          to { width: 100% } /* Or a specific width if known */
+
+        .animate-fade-in-up {
+            animation: fade-in-up 3s ease-out forwards;
         }
-        
-        @keyframes blinking-cursor {
-          from, to { border-color: transparent }
-          50% { border-color: orange; }  /* Change cursor color here if you want*/
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
         }
-        
-        .animate-typing-cursor{
-          animation: blinking-cursor .75s step-end infinite; /* Blinking cursor */
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
         }
-        </style>
+    </style>
+
+<style>
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-in-out;
+    }
+  
+    .animate-fadeInDown {
+      animation: fadeInDown 1s ease-in-out;
+    }
+  
+      .animate-fadeInUp {
+      animation: fadeInUp 1s ease-in-out;
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px); 
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+      @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 
 </head>
 
@@ -99,22 +153,28 @@
                 <a class="btn bg-[#FFDC26] px-7 py-2.5">Register</a>
             </div>
             <div class="lg:hidden md:hidden navbar-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                  </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
             </div>
         </div>
     </nav>
 
     <header class="container mx-auto">
         <div class="mt-20 lg:absolute z-10 ml-4">
-            <p class=" adlam-display-regular text-[56px] mt-2">Pamper Your Pet, <br> Because They Deserve <br>the Bes</p>
-            <p class="sora-font text-xl opacity-80 mt-2">Discover a world of treats, toys, and essentials handpicked for
+            
+            <p class="adlam-display-regular text-[56px] mt-2 animate-fade-in-up">
+                Pamper Your Pet, <br> Because They Deserve <br>the Best
+            </p>
+            <p class="sora-font text-xl opacity-80 mt-2 animate-fade-in-up delay-200">
+                Discover a world of treats, toys, and essentials handpicked for
                 <br> your furry friends. Shop now and make tails wag with joy!
             </p>
-            <a class="btn bg-[#FFDC26] px-7 py-2.5 mt-8">Find a pet</a>
+            <a class="btn bg-[#FFDC26] px-7 py-2.5 mt-8 animate-fade-in-up delay-300">Find a pet</a>
         </div>
-        <div class="relative">
+        <div class="relative animate-float">
             <img src="c1-assets/cat-big.png" alt="">
         </div>
     </header>
@@ -123,59 +183,65 @@
         <section class="container mx-auto mt-20">
             <h2 class="adlam-display-regular text-4xl">Browse By Categories</h2>
             <div class="grid grid-cols-2 lg:grid-cols-6 gap-6 mt-12">
-                <div class="card bg-[#F9DF8A] w-full shadow-xl">
+                <!-- Card 1: Dog -->
+                <div class="card bg-[#F9DF8A] w-full shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
                     <figure class="px-10 pt-10">
-                        <img src="c1-assets/dog-cartoon.png" alt="Dog" class="rounded-full" />
+                        <img src="c1-assets/dog-cartoon.png" alt="Dog" class="rounded-full animate-bounce" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Dog</h2>
                         <p>3 Items</p>
                     </div>
                 </div>
-            
-                <div class="card bg-[#F9DF8A] w-full shadow-xl">
+        
+                <!-- Card 2: Fish -->
+                <div class="card bg-[#F9DF8A] w-full shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
                     <figure class="px-10 pt-10">
-                        <img src="c1-assets/fish-cartoon.png" alt="Fish" class="rounded-xl" />
+                        <img src="c1-assets/fish-cartoon.png" alt="Fish" class="rounded-xl animate-wiggle" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Fish</h2>
                         <p>3 Items</p>
                     </div>
                 </div>
-            
-                <div class="card bg-[#F9DF8A] w-full shadow-xl">
+        
+                <!-- Card 3: Cat -->
+                <div class="card bg-[#F9DF8A] w-full shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
                     <figure class="px-10 pt-10">
-                        <img src="c1-assets/cat-cartoon.png" alt="Cat" class="rounded-xl" />
+                        <img src="c1-assets/cat-cartoon.png" alt="Cat" class="rounded-xl animate-spin-slow" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Cat</h2>
                         <p>3 Items</p>
                     </div>
                 </div>
-            
-                <div class="card bg-[#F9DF8A] w-full shadow-xl">
+        
+                <!-- Card 4: Bird -->
+                <div class="card bg-[#F9DF8A] w-full shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
                     <figure class="px-10 pt-10">
-                        <img src="c1-assets/bird-cartoon.png" alt="Bird" class="rounded-xl" />
+                        <img src="c1-assets/bird-cartoon.png" alt="Bird" class="rounded-xl animate-float" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Bird</h2>
                         <p>3 Items</p>
                     </div>
                 </div>
-            
-                <div class="card bg-[#F9DF8A] w-full shadow-xl">
+        
+                <!-- Card 5: Small Pet -->
+                <div class="card bg-[#F9DF8A] w-full shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
                     <figure class="px-10 pt-10">
-                        <img src="c1-assets/mouse-cartoon.png" alt="Small Pet" class="rounded-xl" />
+                        <img src="c1-assets/mouse-cartoon.png" alt="Small Pet" class="rounded-xl animate-pulse" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Small Pet</h2>
                         <p>3 Items</p>
                     </div>
                 </div>
-            
-                <div class="card bg-[#F9DF8A] w-full shadow-xl">
+        
+                <!-- Card 6: Rabbit -->
+                <div class="card bg-[#F9DF8A] w-full shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
                     <figure class="px-10 pt-10">
-                        <img src="c1-assets/rabbit-cartoon.png" alt="Rabbit" class="rounded-xl" />
+                        <img src="c1-assets/rabbit-cartoon.png" alt="Rabbit" class="rounded-xl animate-bounce" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Rabbit</h2>
@@ -183,33 +249,38 @@
                     </div>
                 </div>
             </div>
-            
         </section>
 
         <section class="container mx-auto mt-20">
-            <h2 class="adlam-display-regular text-4xl">Trending Pet Products</h2>
+            <h2 class="adlam-display-regular text-4xl animate-fade-in">Trending Pet Products</h2>
             <div class="p-0 mt-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Left Section: T-Shirt for Dogs -->
                     <div class="md:pr-8">
-                        <div class="bg-yellow-200 p-6 rounded-lg flex">
-                            <div  class="ml-5">
-                                <h2 class="text-2xl font-bold mb-4">T- Shirt For Dogs</h2>
-                            <p class="text-gray-700 mb-6 opacity-80">Discover a world of treats, toys, and <br> essentials handpicked
-                                for your furry friend.</p>
-                            <button class="bg-white hover:bg-blue-700 text-black font-bold py-2 px-8 rounded-2xl">Shop Now</button>
+                        <div class="bg-yellow-200 p-6 rounded-lg flex hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <div class="ml-5">
+                                <h2 class="text-2xl font-bold mb-4 animate-fade-in-up">T-Shirt For Dogs</h2>
+                                <p class="text-gray-700 mb-6 opacity-80 animate-fade-in-up delay-100">
+                                    Discover a world of treats, toys, and <br>
+                                    essentials handpicked for your furry friend.
+                                </p>
+                                <button class="bg-white hover:bg-blue-700 text-black font-bold py-2 px-8 rounded-2xl transition-colors duration-300 ease-in-out animate-fade-in-up delay-200">
+                                    Shop Now
+                                </button>
                             </div>
-                            <img src="c1-assets/cute-pet-small.png" alt="Dog"class="rounded-lg w-60 h-80">
+                            <img src="c1-assets/cute-pet-small.png" alt="Dog" class="rounded-lg w-60 h-80 animate-float">
                         </div>
                     </div>
-
+        
+                    <!-- Right Section: Grid of Products -->
                     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/dog-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <!-- Product Card 1 -->
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/dog-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-spin-slow">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -217,14 +288,14 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+        
+                        <!-- Product Card 2 -->
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -232,13 +303,13 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/bird-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+        
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -246,13 +317,12 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/rabbit-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -260,13 +330,12 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/bird-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -274,13 +343,12 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/pet-couch.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -288,13 +356,12 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -302,13 +369,12 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3"> 
-                            <img src="c1-assets/pet-couch.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
-                                <div class="flex items-center"> <svg class="w-4 h-4 text-yellow-500 fill-current"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.176-6.545L.205 9.553 6.31 9.05 10 3l3.69 6.05 6.105.502-4.493 4.093L15.82 18.09z" />
                                     </svg>
                                     <span class="text-black ml-1">4.5</span>
                                 </div>
@@ -316,8 +382,8 @@
                                 <span class="text-base font-normal">$39.99</span>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hidden sm:flex">
-                            <img src="c1-assets/dog-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0">
+                        <div class="bg-white rounded-lg shadow-md p-2 flex items-center justify-start gap-3 hover:scale-105 transition-transform duration-300 ease-in-out hidden sm:flex">
+                            <img src="c1-assets/fish-cartoon.png" alt="Pet Bed" class="w-12 h-12 rounded-lg mb-0 animate-wiggle">
                             <div class="flex items-center justify-between grid grid-cols-1">
                                 <div class="flex items-center">
                                     <svg class="w-4 h-4 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -332,110 +398,99 @@
                     </div>
                 </div>
             </div>
-            
         </section>
 
         <section class="container mt-20 mx-auto">
-            <h2 class="adlam-display-regular text-4xl mb-12">Everyday low Price</h2>
-
+            <h2 class="adlam-display-regular text-4xl mb-12 animate-fadeIn">Everyday low Price</h2>
+          
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- First div spanning 2 columns -->
-                <div class="md:pr-8 col-span-1 lg:col-span-2">
-                    <div class="bg-gradient-to-br from-[#F8CCFB] to-[#ACD2FD] p-6 rounded-lg flex items-center">
-                        <div class="ml-5">
-                            <h2 class="text-base font-normal mb-2">Under Price</h2>
-                            <p class="text-2xl font-bold adlam-display-regular mb-2">Pet Grooming Mitt</p>
-                            <p class="text-white font-bold mb-2">(Easy Hair Removal)</p>
-                            <p class="font-bold text-4xl adlam-display-regular">$7.99</p>
-                        </div>
-                        <img src="c1-assets/cute-dog-mid.png" alt="Dog" class="rounded-lg w-60 h-80">
-                    </div>
+             
+              <div class="md:pr-8 col-span-1 lg:col-span-2">
+                <div class="bg-gradient-to-br from-[#F8CCFB] to-[#ACD2FD] p-6 rounded-lg flex items-center 
+                            transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                  <div class="ml-5 animate-slideLeft">
+                    <h2 class="text-base font-normal mb-2">Under Price</h2>
+                    <p class="text-2xl font-bold adlam-display-regular mb-2">Pet Grooming Mitt</p>
+                    <p class="text-white font-bold mb-2">(Easy Hair Removal)</p>
+                    <p class="font-bold text-4xl adlam-display-regular">$7.99</p>
+                  </div>
+                  <img src="c1-assets/cute-dog-mid.png" alt="Dog" class="rounded-lg w-60 h-80 animate-fadeIn">
                 </div>
-            
-                <!-- Second div -->
-                <div class="md:pr-8">
-                    <div class="bg-gradient-to-br from-[#FFF9F4] to-[#F9DF8A] p-6 rounded-lg flex relative">
-                        <div class="ml-3 mt-5">
-                            <h2 class="text-xl font-bold mb-0">T-Shirt For Dogs</h2>
-                            <p class="text-3xl text-yellow-400 font-bold">$7.99</p>
-                        </div>
-                        <img src="c1-assets/cute-pet-small.png" alt="Dog" class="rounded-lg w-60 h-80">
-                    </div>
+              </div>
+          
+              <div class="md:pr-8">
+                <div class="bg-gradient-to-br from-[#FFF9F4] to-[#F9DF8A] p-6 rounded-lg flex relative 
+                            transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                  <div class="ml-3 mt-5 animate-slideUp">
+                    <h2 class="text-xl font-bold mb-0">T-Shirt For Dogs</h2>
+                    <p class="text-3xl text-yellow-400 font-bold">$7.99</p>
+                  </div>
+                  <img src="c1-assets/cute-pet-small.png" alt="Dog" class="rounded-lg w-60 h-80 animate-fadeIn">
                 </div>
+              </div>
             </div>
-            
-        </section>
+          </section>
+          
 
-        <section class="relative bg-[#FFF9F4] ml-32 mr-32 top-32">
-            <div class="top-80 flex flex-col md:flex-row items-center gap-6 md:gap-20">
-                <div>
-                    <img src="c1-assets/cute-pet-mid.png" alt="" class="ml-0 md:ml-16">
+          <section class="relative bg-[#FFF9F4] ml-32 mr-32 top-32 overflow-hidden">
+            <div class="top-80 flex flex-col md:flex-row items-center gap-6 md:gap-20 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100 md:translate-y-0">
+                <div class="animate-pulse">
+                    <img src="c1-assets/cute-pet-mid.png" alt="" class="ml-0 md:ml-16 transition-all duration-500 ease-in-out">
                 </div>
-            
-                <div class="text-center md:text-left">
-                    <p class="text-2xl font-bold adlam-display-regular mb-4">Get Pawsome News!</p>
-                    <p class="mb-4">Exclusive training tips, tricks, product deals, and more.</p>
-                    <input type="text" placeholder="Enter Email..." class="input input-bordered w-full max-w-xs mb-4" />
-                    <button class="btn btn-warning px-8 py-2">Subscribe</button>
-                </div>
-            </div>
-            
-        </section>
-
         
+                <div class="text-center md:text-left">
+                    <p class="text-2xl font-bold adlam-display-regular mb-4 animate-fadeInDown">Get Pawsome News!</p>
+                    <p class="mb-4 animate-fadeIn">Exclusive training tips, tricks, product deals, and more.</p>
+                    <input type="text" placeholder="Enter Email..." class="input input-bordered w-full max-w-xs mb-4 animate-fadeIn" />
+                    <button class="btn btn-warning px-8 py-2 animate-fadeInUp">Subscribe</button>
+                </div>
+            </div>
+        </section>
 
         <footer class="footer bg-yellow-200 text-base-content p-10 mt-0  max-w-full h-96">
             <nav class="relative top-32">
-              <div class="flex items-center gap-3">
-                <img src="c1-assets/logo-footer.png" alt="" class="w-8 h-8">
-                <h6 class="text-xl">Browse Pets</h6>
-              </div>
-              <p class="opacity-90">Discover a world of treats, toys, and <br> essentials handpicked for your furry <br> friends</p>
+                <div class="flex items-center gap-3">
+                    <img src="c1-assets/logo-footer.png" alt="" class="w-8 h-8">
+                    <h6 class="text-xl">Browse Pets</h6>
+                </div>
+                <p class="opacity-90">Discover a world of treats, toys, and <br> essentials handpicked for your furry
+                    <br> friends</p>
             </nav>
             <nav class="relative top-32">
-              <a class="link link-hover">Find a pet</a>
-              <a class="link link-hover">Breeds</a>
-              <a class="link link-hover">Contact us</a>
+                <a class="link link-hover">Find a pet</a>
+                <a class="link link-hover">Breeds</a>
+                <a class="link link-hover">Contact us</a>
             </nav>
             <nav class="relative top-32">
-              <h6 class="footer-title">Follow Us</h6>
-              <div class="grid grid-flow-col gap-4">
-                <a>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    class="fill-current">
-                    <path
-                      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                  </svg>
-                </a>
-                <a>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    class="fill-current">
-                    <path
-                      d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                  </svg>
-                </a>
-                <a>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    class="fill-current">
-                    <path
-                      d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                  </svg>
-                </a>
-              </div>
+                <h6 class="footer-title">Follow Us</h6>
+                <div class="grid grid-flow-col gap-4">
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            class="fill-current">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            class="fill-current">
+                            <path
+                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            class="fill-current">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
             </nav>
-          </footer>
+        </footer>
     </main>
 </body>
 
